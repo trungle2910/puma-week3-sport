@@ -95,23 +95,70 @@ const renderSearchPlayer = async (data) => {
   const getDataPlayer = data.player
     .map((item) => {
       return `
-      <div class="card mb-3" style="max-width: 540px;">
-      <div class="row no-gutters">
-      <div class="col-md-4">
-     <img src=${item.strThumb} class="card-img" alt="...">
-     </div>
-     <div class="col-md-8">
-      <div class="card-body">
-      <h5 class="card-title">${item.strPlayer} </h5>   
-      <h6>${item.strGender}
-      <i class="fas fa-check"></i></h6> 
-      <p> Come from ${item.strNationality}</p>
-     <p>Debut Date: ${item.intFormedYear}</p>
-     <p>Now Playing ${item.strSport}</p>
+          <div class="card mb-3" style="max-width: 540px;" ">
+          <div class="row no-gutters">
+          <div class="col-md-4">
+        <img src=${item.strThumb} class="card-img" alt="...">
         </div>
-      </div>
-     </div>
-    </div>`;
+        <div class="col-md-8">
+          <div class="card-body">
+          <h5 class="card-title">${item.strPlayer} </h5>   
+          <h6>${item.strGender}
+          <i class="fas fa-check"></i></h6> 
+          <p> Come from ${item.strNationality}</p>
+        <p>Debut Date: ${item.intFormedYear}</p>
+        <p>Now Playing ${item.strSport}</p>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">More Info</button>
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+           
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src=${item.strRender} class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src=${item.strCutout} class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src=${item.strThumb} class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+            <div >
+              <h5 class="card-title">${item.strPlayer} </h5>   
+              <h6>${item.strGender}
+              <i class="fas fa-check"></i></h6> 
+              <p> Come from ${item.strNationality}</p>
+              <p>was Born in ${item.dateBorn} in ${item.strBirthLocations} Height:${item.strHeight} Weight:${item.strWeight}</p>
+              <p>now play for ${item.strTeam}</p>
+              <p>Debut Date: ${item.intFormedYear}</p>
+              <p>Now Playing ${item.strSport}</p>
+              <p></p>
+            </div>
+            <div>${item.strDescriptionEN}</div>
+            <br>
+          </div>
+            </div>
+          </div>
+        </div>
+            </div>
+          </div>
+        </div>
+        </div>`;
     })
     .join("");
   document.getElementById("viewContent").innerHTML = getDataPlayer;
@@ -147,5 +194,8 @@ const renderSearchTeam = async (data) => {
     .join("");
   document.getElementById("viewContent").innerHTML = getTeamData;
 };
-
+// const moreInfo = (idPlayer) =>{
+//   lastUrl = `lookupteam.php?id=${idPlayer}`
+//   getData()
+// }
 getData();
