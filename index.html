@@ -21,7 +21,16 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light"
+        style="
+          background: linear-gradient(
+            45deg,
+            rgba(29, 236, 197, 0.5),
+            rgba(91, 14, 214, 0.5) 100%
+          );
+        "
+      >
         <a class="navbar-brand" href="#">Navbar</a>
         <button
           class="navbar-toggler"
@@ -39,31 +48,9 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href=""
-                >Home
-                <span class="sr-only" onclick="goHome()">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
+                >Last 15 Events
+                <span class="sr-only" onclick="goHome()"></span>
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0" onsubmit="return false">
@@ -106,6 +93,84 @@
         ></div>
       </div>
     </main>
+    <section>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src=${item.strTeamBadge} class="card-img" alt="...">
+        </div>
+            <div class="col-md-8">
+             <div class="card-body">
+             <h5 class="card-title">${
+               item.strAlternate == "" ? item.strTeam : item.strAlternate
+             }</h5>    
+             <p>${
+               !item.strTeamShort
+                 ? "this team don't have team short name "
+                 : item.strTeamShort
+             }</p>
+            <p>Debut Date: ${item.intFormedYear}</p>
+            <p>Now Playing ${item.strSport}</p>
+               <p>${item.strStadium}</p> 
+               <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target=".bd-example-modal-lg">More Info</button>
+               <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                 <div class="modal-dialog modal-lg" role="document">
+                   <div class="modal-content">
+                  
+                   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                   <ol class="carousel-indicators">
+                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                   </ol>
+                   <div class="carousel-inner">
+                     <div class="carousel-item active">
+                       <img src=${item.strTeamBadge} class="d-block w-100" alt="...">
+                     </div>
+                     <div class="carousel-item">
+                       <img src=${item.strTeamJersey} class="d-block w-100" alt="...">
+                     </div>
+                     <div class="carousel-item">
+                       <img src=${item.strTeamLogo} class="d-block w-100" alt="...">
+                     </div>
+                   </div>
+                   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                     <span class="sr-only">Previous</span>
+                   </a>
+                   <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                     <span class="sr-only">Next</span>
+                   </a>
+                   <div >
+                     <h5 class="card-title">${item.strTeam} (${item.strTeamShort}) </h5>   
+                     <h6>Debut Date: ${item.intFormedYear} in ${item.strCountry} and play ${strSport} </h6> 
+                     <div>
+                     <div>
+                     <div>${item.strStadium}</div>
+                     <img src=${item.strStadiumThumb}>
+                     <p>${item.strStadiumDescription}</p>
+                     </div>
+                     <p></p>
+                   </div>
+                   <div>${item.strStadiumDescription}</div>
+                   <br>
+                 </div>
+                   </div>
+                 </div>
+               </div>
+                   </div>
+               </div>
+             </div>
+            </div>
+           </div>
+    </section>
+    <section>
+
+    </div>
+  </div>
+  </div>
+    </section> 
 
     <!-- jQuery, Popper, Bootstrap -->
     <script
@@ -129,3 +194,156 @@
     <script src="./script.js"></script>
   </body>
 </html>
+
+<!-- 
+<section>
+  <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target=".bd-example-modal-lg">More Info</button>
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+     
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src=${item.strTeamBadge} class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src=${item.strTeamJersey} class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src=${item.strTeamLogo} class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <div >
+        <h5 class="card-title">${item.strTeam} (${item.strTeamShort}) </h5>   
+        <h6>Debut Date: ${item.intFormedYear} in ${item.strCountry} and play ${strSport} </h6> 
+        <div>
+        <div>
+        <div>${item.strStadium}</div>
+        <img src=${item.strStadiumThumb}>
+        <p>${item.strStadiumDescription}</p>
+        </div>
+        <p></p>
+      </div>
+      <div>${item.strStadiumDescription}</div>
+      <br>
+    </div>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section> -->
+<!-- <section>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+     <div class="col-md-4">
+        <img src=${item.strTeamBadge} class="card-img" alt="...">
+      </div>
+        <div class="col-md-8">
+         <div class="card-body">
+         <h5 class="card-title">${
+           item.strAlternate == "" ? item.strTeam : item.strAlternate
+         }</h5>    
+         <p>${
+           !item.strTeamShort
+             ? "this team don't have team short name "
+             : item.strTeamShort
+         }</p>
+        <p>Debut Date: ${item.intFormedYear}</p>
+        <p>Now Playing ${item.strSport}</p>
+           <p>${item.strStadium}</p> 
+           </div>
+           <button type="button" class=""btn btn-outline-secondary btn-icon-right"" data-toggle="modal" data-target=".bd-example-modal-lg">More Info</button>
+     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+       <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+        
+         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+         <ol class="carousel-indicators">
+           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+         </ol>
+         <div class="carousel-inner">
+           <div class="carousel-item active">
+             <img src=${item.strTeamBadge} class="d-block w-100" alt="...">
+           </div>
+           <div class="carousel-item">
+             <img src=${item.strTeamJersey} class="d-block w-100" alt="...">
+           </div>
+           <div class="carousel-item">
+             <img src=${item.strTeamLogo} class="d-block w-100" alt="...">
+           </div>
+         </div>
+         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+           <span class="sr-only">Previous</span>
+         </a>
+         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+           <span class="sr-only">Next</span>
+         </a>
+         <div >
+           <h5 class="card-title">${item.strTeam} (${item.strTeamShort}) </h5>   
+           <h6>Debut Date: ${item.intFormedYear} in ${
+           item.strCountry
+         } and play ${strSport} </h6> 
+           <div>
+           <div>
+           <div>${item.strStadium}</div>
+           <img src=${item.strStadiumThumb}>
+           <p>${item.strStadiumDescription}</p>
+           </div>
+           <p></p>
+         </div>
+         <div>${item.strStadiumDescription}</div>
+         <br>
+       </div>
+         </div>
+       </div>
+     </div>
+         </div>
+        </div>
+      </div>
+      </div>
+      </section>
+      <section>
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row no-gutters">
+          <div class="col-md-4">
+              <img src=${item.strTeamBadge} class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+               <div class="card-body">
+               <h5 class="card-title">${
+                 item.strAlternate == "" ? item.strTeam : item.strAlternate
+               }</h5>    
+               <p>${
+                 !item.strTeamShort
+                   ? "this team don't have team short name "
+                   : item.strTeamShort
+               }</p>
+              <p>Debut Date: ${item.intFormedYear}</p>
+              <p>Now Playing ${item.strSport}</p>
+                 <p>${item.strStadium}</p> 
+                 </div>
+               </div>
+              </div>
+             </div>
+      </section> -->

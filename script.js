@@ -61,7 +61,6 @@ const renderFirstData = async (res) => {
            <p>Result: ${item.strHomeTeam} ${item.intHomeScore} : ${item.intAwayScore} ${item.strAwayTeam}  </p>
             <br>
             <br>
-
            </div>
            </div>
            </div>
@@ -108,7 +107,7 @@ const renderSearchPlayer = async (data) => {
           <p> Come from ${item.strNationality}</p>
         <p>Debut Date: ${item.intFormedYear}</p>
         <p>Now Playing ${item.strSport}</p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">More Info</button>
+        <button type="button" class=""btn btn-outline-secondary "" data-toggle="modal" data-target=".bd-example-modal-lg">More Info</button>
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -186,6 +185,58 @@ const renderSearchTeam = async (data) => {
      <p>Debut Date: ${item.intFormedYear}</p>
      <p>Now Playing ${item.strSport}</p>
         <p>${item.strStadium}</p> 
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target=".bd-example-modal-lg">More Info</button>
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+         
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src=${item.strTeamBadge} class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src=${item.strTeamJersey} class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src=${item.strTeamLogo} class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+          <div >
+            <h5 class="card-title">${item.strTeam} (${
+        item.strTeamShort
+      }) </h5>   
+            <h6>Debut Date: ${item.intFormedYear} in ${
+        item.strCountry
+      } and play ${item.strSport} </h6> 
+            <div>
+            <div>
+            <div>${item.strStadium}</div>
+            <img src=${item.strStadiumThumb} style="width: 500px">
+            <p>${item.strStadiumDescription}</p>
+            </div>
+            <p></p>
+          </div>
+          <div>${item.strDescriptionEN}</div>
+          <br>
+        </div>
+          </div>
+        </div>
+      </div>
+          </div>
         </div>
       </div>
      </div>
