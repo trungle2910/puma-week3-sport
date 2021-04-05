@@ -17,7 +17,7 @@ const getData = async () => {
     <h1>L o a d i n g...</h1>`;
     let data = await fetch(`${baseUrl}${lastUrl}`);
     let res = await data.json();
-    console.log(lastUrl);
+    // console.log(lastUrl);
     // console.log(res.teams);
     renderFirstData(res);
     renderSearchPlayer(res);
@@ -79,7 +79,7 @@ form.addEventListener("submit", handleForm);
 
 const handleSearchPlayersClick = () => {
   let namePlayer = document.getElementById("search-input").value;
-  console.log(namePlayer);
+  // console.log(namePlayer);
   lastUrl = `searchplayers.php?p=${namePlayer}`;
   getData();
 };
