@@ -14,7 +14,7 @@ const getData = async () => {
     <div class="spinner-border text-danger" role="status">
       <span class="sr-only"></span>
     </div>
-    <h1>Chờ Tí...</h1>`;
+    <h1>L o a d i n g...</h1>`;
     let data = await fetch(`${baseUrl}${lastUrl}`);
     let res = await data.json();
     console.log(lastUrl);
@@ -71,7 +71,7 @@ const renderFirstData = async (res) => {
     .join("");
   document.getElementById("viewContent").innerHTML = data;
 };
-var form = document.getElementById("search-input");
+let form = document.getElementById("search-input");
 function handleForm(event) {
   event.preventDefault();
 }
@@ -94,7 +94,7 @@ const renderSearchPlayer = async (data) => {
   const getDataPlayer = data.player
     .map((item) => {
       return `
-          <div class="card mb-3" style="max-width: 540px;" ">
+          <div class="card mb-3" style="max-width: 440px;margin-left: 15px;">
           <div class="row no-gutters">
           <div class="col-md-4">
         <img src=${item.strThumb} class="card-img" alt="...">
@@ -167,7 +167,8 @@ const renderSearchTeam = async (data) => {
   const getTeamData = data.teams
     .map((item) => {
       return `
- <div class="card mb-3" style="max-width: 540px;">
+ <div class="card mb-3" style="max-width: 440px;margin-left: 15px;
+ ">
  <div class="row no-gutters">
  <div class="col-md-4">
      <img src=${item.strTeamBadge} class="card-img" alt="...">

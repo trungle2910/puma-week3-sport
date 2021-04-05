@@ -1,6 +1,51 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Codystar:300&display=swap");
+/* * {
+  background-image: url(./bg-sport.jpg);
+} */
+.neons {
+  margin-top: 10px;
+  text-align: center;
+}
+nav {
+  margin-top: -25px;
+  width: 100vw;
+
+  z-index: 1000;
+}
+#viewContent {
+  margin-left: 150px;
+}
+.neons a {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    color: #fff;
+    text-shadow: 0 0 10px #00fff2, 0 0 10px #00fff2, 0 0 10px #00fff2,
+      0 0 10px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 10px #00fff2,
+      0 0 10px #00fff2;
+  }
+
+  to {
+    color: gray;
+    text-shadow: 0 0 10px #00fff2, 0 0 10px #00fff2, 0 0 10px #00fff2,
+      0 0 10px #00fff2, 0 0 10px #00fff2, 0 0 10px #00fff2, 0 0 10px #00fff2,
+      0 1 10px #00fff2;
+  }
+}
+
+/**/
+
 #team {
   background: #eee !important;
+  background-image: url();
 }
 
 .btn-primary:hover,
