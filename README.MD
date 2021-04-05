@@ -31,7 +31,6 @@ Boostrap
 # Sources of API
 
 https://www.thesportsdb.com/api/v1/json/1/
-eventspastleague.php?id=4328
 
 # Time spent and lesson learned
 
