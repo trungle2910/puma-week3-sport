@@ -35,9 +35,9 @@ eventspastleague.php?id=4328
 
 # Time spent and lesson learned
 
-Time spent: 33 hours spent in total.
-
-Describe any challenges encountered while building the app.
+Time spent: 35 hours spent in total.
+The API that we got does not contain much information to start with.
+There was a typo that later became a bug that took us while to debug.
 
 # License
 
